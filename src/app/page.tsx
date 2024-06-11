@@ -1,3 +1,4 @@
+import ContactForm from "@/components/ContactForm";
 import { Icons } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Phone from "@/components/Phone";
@@ -210,7 +211,7 @@ export default function Home() {
                 <span className="relative px-2 bg-green-600 text-white">
                   brands
                 </span>{" "}
-                do we like?
+                do you like?
               </h2>
             </div>
           </div>
@@ -245,15 +246,20 @@ export default function Home() {
                   className="sticky w-60 h-60 mt-10"
                 />
               </div>
-              <img src="BOSTON-JERSEY-REMOVED.png" className="" />
+              <img src="BOSTON-JERSEY-REMOVED.png" className="w-80" />
             </div>
-            <img src="arrow.png" className="w-10 h-20 mx-auto mb-10" />
-            <div>
-              <img src="models/guy-natan.jpeg" className="" />
+            <img src="arrow.png" className="w-20 h-30 mx-auto mb-10" />
+            <div className="flex flex-col mx-auto">
+              <img src="models/guy-natan.jpeg" className="w-96 mx-auto" />
+              <div className="flex gap-1.5 items-center text-zinc-600 mx-auto">
+                    <Check className="h-10 w-10 stroke-[3px] text-green-600" />
+                    <img src="happy-customer.png" className="w-96"/>
+                  </div>
             </div>
           </div>
         </MaxWidthWrapper>
       </section>
+      <ContactForm />
     </div>
   );
 }

@@ -10,7 +10,7 @@ const PHONES = [
   "/testimonials/elon-unboxing.mp4",
   "/testimonials/part1.mp4",
   "/testimonials/part2.mp4",
-  "/testimonials/elon-unboxing.mp4",
+  "/testimonials/slides-unboxing.mp4",
   "/testimonials/part2.mp4",
   "/testimonials/part3.mp4",
 ];
