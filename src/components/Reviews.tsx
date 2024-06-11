@@ -13,6 +13,7 @@ const PHONES = [
   "/testimonials/slides-unboxing.mp4",
   "/testimonials/part2.mp4",
   "/testimonials/part3.mp4",
+  "/testimonials/guy-model.jpeg"
 ];
 
 function splitArray<T>(array: Array<T>, numParts: number) {

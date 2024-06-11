@@ -128,7 +128,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className="w-full h-full mx-auto pb-10">
+    <section id="contact" className="w-full h-full mx-auto pb-10">
       <MaxWidthWrapper>
         <div className="container mx-auto">
           <h2 className="order-1 mx-auto mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:6xl text-gray-900">
@@ -152,7 +152,7 @@ const ContactForm: React.FC = () => {
             />
             {!isUserNameValid && (
               <p className="text-white -mt-3 text-sm">
-                <span>*</span> required field
+                * required field
               </p>
             )}
             <Input
@@ -164,7 +164,7 @@ const ContactForm: React.FC = () => {
             />
             {!isUserEmailValid && (
               <p className="text-white -mt-3 text-sm">
-                <span>*</span> required field
+                * required field
               </p>
             )}
             <Textarea
@@ -175,7 +175,7 @@ const ContactForm: React.FC = () => {
             />
             {!isUserMessageValid && (
               <p className="text-white -mt-3 text-sm">
-                <span>*</span> required field
+                * required field
               </p>
             )}
             <div className="relative">
@@ -194,8 +194,8 @@ const ContactForm: React.FC = () => {
                 containerClass="relative w-full"
               />
               {!isPhoneValid && (
-                <p className="text-white -mt-3 text-sm">
-                  <span>*</span> required field
+                <p className="text-white mt-2 text-sm">
+                  * required field
                 </p>
               )}
             </div>

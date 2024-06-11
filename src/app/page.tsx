@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="bg-slate-50">
-      <section>
+      <section id="/">
         <MaxWidthWrapper className="pb-24 pt-10 lg:grid lg:grid-cols-3 sm:pb-32 lg: gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-32 lg:pb-52">
           <div className="col-span-2 px-5 lg:px-0 lg:pt-4">
             <div className="relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* value proposition */}
-      <section className="bg-slate-100 py-24">
+      <section id="reviews" className="bg-slate-100 py-24">
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-32">
           <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6">
             <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:6xl text-gray-900">
@@ -196,13 +196,9 @@ export default function Home() {
             </div>
           </div>
         </MaxWidthWrapper>
-
-        <div className="pt-16">
-          <Reviews />
-        </div>
       </section>
 
-      <section>
+      <section id="gallery">
         <MaxWidthWrapper className="py-24">
           <div className="mb-12 px-6 lg:px-8">
             <div className="mx-auto max-w-2xl sm:text-center">
@@ -214,6 +210,9 @@ export default function Home() {
                 do you like?
               </h2>
             </div>
+          </div>
+          <div className="pt-2">
+            <Reviews />
           </div>
 
           <div className="mx-auto max-w-3xl px-6 lg:px-8 md:gap-6 md:items-center md:flex-col">
@@ -252,9 +251,9 @@ export default function Home() {
             <div className="flex flex-col mx-auto">
               <img src="models/guy-natan.jpeg" className="w-96 mx-auto" />
               <div className="flex gap-1.5 items-center text-zinc-600 mx-auto">
-                    <Check className="h-10 w-10 stroke-[3px] text-green-600" />
-                    <img src="happy-customer.png" className="w-96"/>
-                  </div>
+                <Check className="h-10 w-10 stroke-[3px] text-green-600" />
+                <img src="happy-customer.png" className="w-96" />
+              </div>
             </div>
           </div>
         </MaxWidthWrapper>
