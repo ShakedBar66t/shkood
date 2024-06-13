@@ -8,7 +8,7 @@ import Phone from "./Phone";
 
 const PHONES = [
   "/testimonials/elon-unboxing.mp4",
-  "testimonials/part1 (1).mp4",
+  "/testimonials/part1 (1).mp4",
   "/testimonials/part2.mp4",
   "/testimonials/part3.mp4",
   "/testimonials/rick-unboxing.mp4",
