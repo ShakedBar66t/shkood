@@ -1,46 +1,15 @@
-"use client"
 import { cn } from "@/lib/utils";
-import { HTMLAttributes, useEffect, useRef } from "react";
+import { HTMLAttributes } from "react";
 
 interface PhoneProps extends HTMLAttributes<HTMLDivElement> {
   mediaSrc: string;
+  isVideo?: boolean;
   dark?: boolean;
 }
 
 const Phone = ({ mediaSrc, className, dark = false, ...props }: PhoneProps) => {
   const isVideo = mediaSrc.endsWith('.mp4');
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              videoElement?.play();
-            } else {
-              videoElement?.pause();
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      if (videoElement) {
-        observer.observe(videoElement);
-      }
-
-      return () => {
-        if (videoElement) {
-          observer.unobserve(videoElement);
-        }
-      };
-    } else {
-      // Fallback for browsers that do not support IntersectionObserver
-      videoElement?.play();
-    }
-  }, []);
+  const { isVideo: _, ...restProps } = props; // Extract isVideo from props to avoid passing it to the div
 
   return (
     <div
@@ -48,7 +17,7 @@ const Phone = ({ mediaSrc, className, dark = false, ...props }: PhoneProps) => {
         "relative pointer-events-none z-50 overflow-hidden",
         className
       )}
-      {...props}
+      {...restProps} // Spread the rest of the props
     >
       <img
         src={
@@ -68,16 +37,12 @@ const Phone = ({ mediaSrc, className, dark = false, ...props }: PhoneProps) => {
             autoPlay
             loop
             muted
-            playsInline
-            preload="metadata"
-            ref={videoRef}
           />
         ) : (
           <img
             className="object-cover w-full h-full"
             src={mediaSrc}
             alt="overlaying media"
-            loading="lazy"
           />
         )}
       </div>
