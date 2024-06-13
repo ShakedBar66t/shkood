@@ -7,12 +7,12 @@ import { cn } from "@/lib/utils";
 import Phone from "./Phone";
 
 const PHONES = [
-  "/testimonials/elon-unboxing.mp4",
-  "/testimonials/part1.mp4",
-  "/testimonials/part2.mp4",
-  "/testimonials/slides-unboxing.mp4",
-  "/testimonials/part2.mp4",
-  "/testimonials/part3.mp4",
+  "https://res.cloudinary.com/drld1bejg/video/upload/v1718291606/Shkood%20project/k6bsyptfzcgpxklch230.mp4",
+  "https://res.cloudinary.com/drld1bejg/video/upload/v1718291602/Shkood%20project/b7smgg9znhxse8wlfuxk.mp4",
+  "https://res.cloudinary.com/drld1bejg/video/upload/v1718291599/Shkood%20project/hqpnftcjzpjs98molo3q.mp4",
+  "https://res.cloudinary.com/drld1bejg/video/upload/v1718291594/Shkood%20project/j7k8ym5j2a8vzv0poith.mp4",
+  "https://res.cloudinary.com/drld1bejg/video/upload/v1718291591/Shkood%20project/dofae8z9ihfex86qy2rf.mp4",
+  "https://res.cloudinary.com/drld1bejg/video/upload/v1718291576/Shkood%20project/ce63zlvyvhmttzzityo8.mp4",
   "/testimonials/guy-model.jpeg"
 ];
 
