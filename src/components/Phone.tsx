@@ -1,5 +1,6 @@
+"use client"
 import { cn } from "@/lib/utils";
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, useEffect, useRef } from "react";
 
 interface PhoneProps extends HTMLAttributes<HTMLDivElement> {
   mediaSrc: string;
@@ -8,6 +9,39 @@ interface PhoneProps extends HTMLAttributes<HTMLDivElement> {
 
 const Phone = ({ mediaSrc, className, dark = false, ...props }: PhoneProps) => {
   const isVideo = mediaSrc.endsWith('.mp4');
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              videoElement?.play();
+            } else {
+              videoElement?.pause();
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      if (videoElement) {
+        observer.observe(videoElement);
+      }
+
+      return () => {
+        if (videoElement) {
+          observer.unobserve(videoElement);
+        }
+      };
+    } else {
+      // Fallback for browsers that do not support IntersectionObserver
+      videoElement?.play();
+    }
+  }, []);
+
   return (
     <div
       className={cn(
@@ -35,12 +69,15 @@ const Phone = ({ mediaSrc, className, dark = false, ...props }: PhoneProps) => {
             loop
             muted
             playsInline
+            preload="metadata"
+            ref={videoRef}
           />
         ) : (
           <img
             className="object-cover w-full h-full"
             src={mediaSrc}
             alt="overlaying media"
+            loading="lazy"
           />
         )}
       </div>
