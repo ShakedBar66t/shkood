@@ -3,7 +3,6 @@ import { HTMLAttributes } from "react";
 
 interface PhoneProps extends HTMLAttributes<HTMLDivElement> {
   mediaSrc: string;
-  isVideo?: boolean;
   dark?: boolean;
 }
 
