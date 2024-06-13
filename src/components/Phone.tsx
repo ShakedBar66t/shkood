@@ -34,6 +34,7 @@ const Phone = ({ mediaSrc, className, dark = false, ...props }: PhoneProps) => {
             autoPlay
             loop
             muted
+            playsInline
           />
         ) : (
           <img
