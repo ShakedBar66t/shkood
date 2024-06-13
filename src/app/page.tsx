@@ -134,13 +134,13 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                  "I had an amazing experience working with Shko
+                &quot;I had an amazing experience working with Shko
                   <span className="text-green-600">od!</span> He completely
                   transformed my wardrobe, and now{" "}
                   <span className="p-0.5 bg-slate-800 text-white">
                     I feel more comfortable
                   </span>{" "}
-                  and stylish."
+                  and stylish.&quot;
                 </p>
               </div>
               <div className="flex gap-4 mt-2">
@@ -168,14 +168,14 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                  "Working with Shko
+                &quot;Working with Shko
                   <span className="text-green-600">od!</span> was the best
                   decision for my style. He made the whole experience fun and
                   stress-free, and{" "}
                   <span className="p-0.5 bg-slate-800 text-white">
                     I love my new look
                   </span>
-                  ."
+                  .&quot;
                 </p>
               </div>
               <div className="flex gap-4 mt-2">
