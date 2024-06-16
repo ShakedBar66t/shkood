@@ -1,49 +1,64 @@
-import { cn } from "@/lib/utils";
-import { HTMLAttributes } from "react";
+"use client"
 
-interface PhoneProps extends HTMLAttributes<HTMLDivElement> {
+import { Loader2 } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
+
+interface PhoneProps extends React.HTMLAttributes<HTMLDivElement> {
   mediaSrc: string;
-  isVideo?: boolean;
   dark?: boolean;
 }
 
-const Phone = ({ mediaSrc, className, dark = false, ...props }: PhoneProps) => {
-  const isVideo = mediaSrc.endsWith('.mp4');
-  const { isVideo: _, ...restProps } = props; // Extract isVideo from props to avoid passing it to the div
+const Phone: React.FC<PhoneProps> = ({ mediaSrc, className, dark = false, ...props }) => {
+  const isVideo = mediaSrc.endsWith(".mp4");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const mediaElement = document.createElement(isVideo ? "video" : "img") as HTMLVideoElement | HTMLImageElement;
+    mediaElement.src = mediaSrc;
+
+    const handleLoad = () => setIsLoading(false);
+    const handleError = () => setIsLoading(false);
+
+    if (isVideo) {
+      mediaElement.addEventListener("loadeddata", handleLoad);
+      mediaElement.addEventListener("error", handleError);
+      const videoElement = mediaElement as HTMLVideoElement;
+      videoElement.preload = "auto";
+      videoElement.muted = true;
+      videoElement.loop = true;
+      videoElement.autoplay = true;
+    } else {
+      mediaElement.addEventListener("load", handleLoad);
+      mediaElement.addEventListener("error", handleError);
+    }
+
+    return () => {
+      if (isVideo) {
+        mediaElement.removeEventListener("loadeddata", handleLoad);
+        mediaElement.removeEventListener("error", handleError);
+      } else {
+        mediaElement.removeEventListener("load", handleLoad);
+        mediaElement.removeEventListener("error", handleError);
+      }
+    };
+  }, [mediaSrc, isVideo]);
 
   return (
-    <div
-      className={cn(
-        "relative pointer-events-none z-50 overflow-hidden",
-        className
-      )}
-      {...restProps} // Spread the rest of the props
-    >
+    <div className={cn("relative pointer-events-none z-50 overflow-hidden", className)} {...props}>
       <img
-        src={
-          dark
-            ? "/phone-template-dark-edges.png"
-            : "/phone-template-white-edges.png"
-        }
+        src={dark ? "/phone-template-dark-edges.png" : "/phone-template-white-edges.png"}
         className="pointer-events-none z-50 select-none"
         alt="phone frame"
       />
 
-      <div className="absolute -z-10 inset-0">
-        {isVideo ? (
-          <video
-            className="object-cover w-full h-full"
-            src={mediaSrc}
-            autoPlay
-            loop
-            muted
-          />
+      <div className="absolute inset-0 flex items-center -z-10 justify-center">
+        {isLoading ? (
+          <Loader2 className="animate-spin h-12 w-12 text-gray-500" />
+        ) : isVideo ? (
+          <video className="object-fill w-full h-full " src={mediaSrc} autoPlay loop muted />
         ) : (
-          <img
-            className="object-cover w-full h-full"
-            src={mediaSrc}
-            alt="overlaying media"
-          />
+          <img className="object-cover w-full h-full" src={mediaSrc} alt="overlaying media" />
         )}
       </div>
     </div>
