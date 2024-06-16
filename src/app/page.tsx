@@ -117,7 +117,6 @@ export default function Home() {
               What our{" "}
               <span className="relative px-2">
                 customers{" "}
-                <Icons.underline className="hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-green-500" />
               </span>{" "}
               say
             </h2>
@@ -212,48 +211,6 @@ export default function Home() {
           </div>
           <div className="pt-2">
             <Reviews />
-          </div>
-
-          <div className="mx-auto max-w-3xl px-6 lg:px-8 md:gap-6 md:items-center md:flex-col">
-            <div className="relative flex flex-col items-center w-full">
-              <div className="w-full mt-10">
-                <img
-                  src="fucking-awesome-arrow.png"
-                  className="w-60 h-60 sticky"
-                />
-                <img
-                  src="FA-PANTS-REMOVED.png"
-                  className="mx-auto w-50 h-50 md:w-80"
-                />
-                <img src="plus-sign.png" className="rotate-[10deg] mx-auto" />
-              </div>
-              <div className="w-full md:flex md:flex-col items-end">
-                <img
-                  src="solomon-arrow.png"
-                  className="w-60 h-60 float-end mt-10 -mb-24"
-                />
-                <img
-                  src="solomon-shoe.webp"
-                  className="mx-auto w-50 h-50 md:w-80"
-                />
-              </div>
-              <div className="w-full md:flex md:flex-col">
-                <img src="plus-sign.png" className="rotate-[10deg] mx-auto" />
-                <img
-                  src="boston-jersey-arrow.png"
-                  className="sticky w-60 h-60 mt-10"
-                />
-              </div>
-              <img src="BOSTON-JERSEY-REMOVED.png" className="w-80" />
-            </div>
-            <img src="arrow.png" className="w-20 h-30 mx-auto mb-10" />
-            <div className="flex flex-col mx-auto">
-              <img src="models/guy-natan.jpeg" className="w-96 mx-auto" />
-              <div className="flex gap-1.5 items-center text-zinc-600 mx-auto">
-                <Check className="h-10 w-10 stroke-[3px] text-green-600" />
-                <img src="happy-customer.png" className="w-96" />
-              </div>
-            </div>
           </div>
         </MaxWidthWrapper>
       </section>

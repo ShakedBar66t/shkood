@@ -15,7 +15,14 @@ const Navbar = () => {
           <Link href="/" className="flex z-40 font-semibold">
             Shko<span className="text-green-600">od!</span>
           </Link>
+          <div>
+            <Link href="/journey">
+            Jour<span className="text-green-600">ney!</span>
+
+            </Link>
+          </div>
         </div>
+          
       </MaxWidthWrapper>
     </nav>
   );
