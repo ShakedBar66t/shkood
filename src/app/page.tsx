@@ -113,12 +113,13 @@ export default function Home() {
       <section id="reviews" className="bg-slate-100 py-24">
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-32">
           <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6">
-            <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:6xl text-gray-900">
-              What our{" "}
-              <span className="relative px-2">
-                customers{" "}
+            <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+              What our 
+              <span className="relative inline-block px-2">
+                Customers{" "}
+                <Icons.underline className="hidden sm:block pointer-events-none absolute left-0 w-full -bottom-6 text-green-500" />
               </span>{" "}
-              say
+              have to say
             </h2>
             <img src="logo-2.png" className="w-24 order-0 lg:order-2" />
           </div>
@@ -133,7 +134,7 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                &quot;I had an amazing experience working with Shko
+                  &quot;I had an amazing experience working with Shko
                   <span className="text-green-600">od!</span> He completely
                   transformed my wardrobe, and now{" "}
                   <span className="p-0.5 bg-slate-800 text-white">
@@ -167,7 +168,7 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                &quot;Working with Shko
+                  &quot;Working with Shko
                   <span className="text-green-600">od!</span> was the best
                   decision for my style. He made the whole experience fun and
                   stress-free, and{" "}

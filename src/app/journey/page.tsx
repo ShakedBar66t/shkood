@@ -15,12 +15,17 @@ export default function Journey() {
         </h2>
         <img
           src="/models/guy-dont.png"
-          className="mx-auto mt-10 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
+          className="mx-auto mt-10 w-full max-w-xs"
           alt="Guy Don't"
         />
         <img
           src="/models/journey.png"
-          className="mx-auto mt-10 w-full max-w-s sm:max-w-md md:max-w-lg lg:max-w-xl"
+          className="mx-auto mt-10 w-full max-w-xs hidden sm:hidden md:block md:max-w-4xl lg:max-w-7xl"
+          alt="Journey"
+        />
+        <img
+          src="/models/journey-mobile.png"
+          className="mx-auto mt-10 w-full max-w-xs sm:block md:hidden"
           alt="Journey"
         />
       </MaxWidthWrapper>
