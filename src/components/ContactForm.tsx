@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Icons } from "./Icons";
 import emailjs from "@emailjs/browser";
 import MaxWidthWrapper from "./MaxWidthWrapper";
@@ -7,18 +7,12 @@ import { buttonVariants } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import OtpInput from "otp-input-react";
-import { Loader2 } from "lucide-react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { auth } from "../firebase.config"; // Adjust the import path as needed
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 const ContactForm: React.FC = () => {
   const [otp, setOtp] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
   const [ph, setPh] = useState<string>("");
-  const [showOTP, setShowOTP] = useState<boolean>(false);
-  const [otpVerified, setOtpVerified] = useState<boolean>(false);
   const [user, setUser] = useState<any>(null);
 
   const [isUserNameValid, setIsUserNameValid] = useState<boolean>(true);
@@ -28,27 +22,23 @@ const ContactForm: React.FC = () => {
 
   const form = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && !window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        "recaptcha-container",
-        {
-          size: "invisible",
-          callback: (response: any) => {
-            console.log("reCAPTCHA solved");
-          },
-          "expired-callback": () => {
-            console.log("reCAPTCHA expired");
-          },
-        }
-      );
+  const isFormValid = () => {
+    let valid = true;
+    if (form.current) {
+      const formData = new FormData(form.current);
+      const userName = formData.get("user_name") as string;
+      const userEmail = formData.get("user_email") as string;
+      const userMessage = formData.get("user_message") as string;
 
-      window.recaptchaVerifier.render().then((widgetId: any) => {
-        window.recaptchaWidgetId = widgetId;
-      });
+      setIsUserNameValid(!!userName);
+      setIsUserEmailValid(!!userEmail);
+      setIsUserMessageValid(!!userMessage);
+      setIsPhoneValid(!!ph);
+
+      valid = !!userName && !!userEmail && !!userMessage && !!ph;
     }
-  }, []);
+    return valid;
+  };
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,60 +61,6 @@ const ContactForm: React.FC = () => {
           }
         );
     }
-  };
-
-  const verifyPhoneNumber = () => {
-    if (!isFormValid()) {
-      return;
-    }
-    setLoading(true);
-    const phoneNumber = `+${ph}`;
-    const appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-      .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
-        setShowOTP(true);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error during signInWithPhoneNumber", error);
-        setLoading(false);
-      });
-  };
-
-  const verifyOTP = () => {
-    setLoading(true);
-    if (otp) {
-      window.confirmationResult
-        .confirm(otp)
-        .then((result: any) => {
-          setUser(result.user);
-          setOtpVerified(true);
-          setLoading(false);
-        })
-        .catch((error: any) => {
-          console.error("Error confirming OTP", error);
-          setLoading(false);
-        });
-    }
-  };
-
-  const isFormValid = () => {
-    let valid = true;
-    if (form.current) {
-      const formData = new FormData(form.current);
-      const userName = formData.get("user_name") as string;
-      const userEmail = formData.get("user_email") as string;
-      const userMessage = formData.get("user_message") as string;
-
-      setIsUserNameValid(!!userName);
-      setIsUserEmailValid(!!userEmail);
-      setIsUserMessageValid(!!userMessage);
-      setIsPhoneValid(!!ph);
-
-      valid = !!userName && !!userEmail && !!userMessage && !!ph;
-    }
-    return valid;
   };
 
   return (
@@ -195,56 +131,19 @@ const ContactForm: React.FC = () => {
                   containerClass="relative w-full"
                 />
                 {!isPhoneValid && (
-                  <p className="text-white mt-2 text-sm">* required field</p>
+                  <p className="text-white mt-3 text-sm">* required field</p>
                 )}
               </div>
-              <div id="recaptcha-container"></div>
-              {showOTP && !otpVerified && (
-                <OtpInput
-                  value={otp}
-                  onChange={setOtp}
-                  OTPLength={6}
-                  otpType="number"
-                  disabled={false}
-                  autofocus
-                  className="mx-auto "
-                />
-              )}
-              {otpVerified ? (
-                <button
-                  type="submit"
-                  className={buttonVariants({
-                    size: "lg",
-                    className: "mx-auto border",
-                  })}
-                >
-                  Send Message
-                </button>
-              ) : showOTP ? (
-                <button
-                  type="button"
-                  onClick={verifyOTP}
-                  className={buttonVariants({
-                    size: "lg",
-                    className: "mx-auto border",
-                  })}
-                >
-                  Verify OTP
-                  {loading && <Loader2 className="animate-spin m-2" />}
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={verifyPhoneNumber}
-                  className={buttonVariants({
-                    size: "lg",
-                    className: "mx-auto border",
-                  })}
-                >
-                  Send a Code
-                  {loading && <Loader2 className="animate-spin m-2" />}
-                </button>
-              )}
+              <button
+                type="submit"
+                className={buttonVariants({
+                  size: "lg",
+                  className: "mx-auto border",
+                })}
+                onClick={isFormValid}
+              >
+                Send Message
+              </button>
             </form>
           </div>
         </MaxWidthWrapper>
