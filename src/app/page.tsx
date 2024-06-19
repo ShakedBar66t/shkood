@@ -102,7 +102,7 @@ export default function Home() {
               />
               <Phone
                 className="w-64"
-                mediaSrc="/testimonials/elon-unboxing.mov"
+                mediaSrc="https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/ce63zlvyvhmttzzityo8"
               />
             </div>
           </div>

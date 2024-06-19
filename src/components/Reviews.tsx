@@ -7,12 +7,12 @@ import { cn } from "@/lib/utils";
 import Phone from "./Phone";
 
 const PHONES = [
-  "/testimonials/elon-unboxing.mov",
-  "/testimonials/part1 (1).mov",
-  "/testimonials/part2.mov",
-  "/testimonials/part3.mov",
-  "/testimonials/rick-unboxing.mov",
-  "/testimonials/guy-model.jpeg"
+  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/b7smgg9znhxse8wlfuxk",
+  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/hqpnftcjzpjs98molo3q",
+  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/j7k8ym5j2a8vzv0poith",
+  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/dofae8z9ihfex86qy2rf",
+  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/k6bsyptfzcgpxklch230",
+  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/ce63zlvyvhmttzzityo8"
 ];
 
 function splitArray<T>(array: Array<T>, numParts: number) {
