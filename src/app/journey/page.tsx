@@ -21,9 +21,9 @@ export default function Journey() {
         </h1>
         <section className="w-full">
           <div className="relative mx-auto my-10 max-w-[15rem] md:max-w-[10rem] lg:max-w-[15rem]">
-            <img src="/guy-ugly.jpeg" className="w-full" alt="guy-ugly" />
+            <img src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793735/Shkood%20project/vtnzeilyszxwt9yl8cei.jpg" className="w-full" alt="guy-ugly" />
             <img
-              src="/prohibited.png"
+              src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793708/Shkood%20project/bjbaklmjmgacsvmvns9c.png"
               className="absolute top-0 left-0 w-full h-full object-cover overflow-visible"
               alt="prohibited"
             />
@@ -40,7 +40,7 @@ export default function Journey() {
                     100% cotton
                   </p>
                   <img
-                    src="FA-PANTS-REMOVED.png"
+                    src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793865/Shkood%20project/oxg96wrrobfazht2wwze.png"
                     alt="fa-pants"
                     className="max-w-[200px] pl-20"
                   />
@@ -60,7 +60,7 @@ export default function Journey() {
                     <li>100% Polyester</li>
                   </ul>
                   <img
-                    src="BOSTON-JERSEY-REMOVED.png"
+                    src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793862/Shkood%20project/ttdv31roc7mumvbgxc1x.png"
                     alt="nba-jersey"
                     className="max-w-[200px] pl-20"
                   />
@@ -81,7 +81,7 @@ export default function Journey() {
                 </p>
                 <div>
                   <img
-                    src="solomon-shoe.webp"
+                    src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793863/Shkood%20project/t7rmdtcoqmqoyo5ocy0n.webp"
                     alt=""
                     className="w-40 mx-auto"
                   />
@@ -97,12 +97,12 @@ export default function Journey() {
             </div>
             <div className="flex flex-col items-center md:mt-20">
               <img
-                src="/models/guy-natan.jpeg"
+                src="https://res.cloudinary.com/drld1bejg/image/upload/v1718794010/Shkood%20project/iiieyoh7dd5znshhq5qz.jpg"
                 alt="guy-image"
                 className="max-w-xs mx-auto"
               />
               <img 
-              src="happy-customer.png"
+              src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793975/Shkood%20project/zs7vacno2dtz3qyd6q56.png"
               alt="happy-customer"
               className="mx-auto w-96"/>
             </div>
