@@ -14,6 +14,7 @@ const ContactForm: React.FC = () => {
   const [otp, setOtp] = useState<string>("");
   const [ph, setPh] = useState<string>("");
   const [user, setUser] = useState<any>(null);
+  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
   const [isUserNameValid, setIsUserNameValid] = useState<boolean>(true);
   const [isUserEmailValid, setIsUserEmailValid] = useState<boolean>(true);
@@ -55,6 +56,7 @@ const ContactForm: React.FC = () => {
             if (form.current) {
               form.current.reset();
             }
+            setFormSubmitted(true); // Set formSubmitted to true after successful submission
           },
           (error) => {
             console.log("FAILED...", error.text);
@@ -75,76 +77,84 @@ const ContactForm: React.FC = () => {
               </span>{" "}
               us
             </h2>
-            <form
-              ref={form}
-              onSubmit={sendEmail}
-              className="flex flex-col gap-4 mt-10 bg-green-600 p-10 mx-auto rounded-xl max-w-[380px] my-2"
-            >
-              <Input
-                type="text"
-                placeholder="Full Name"
-                name="user_name"
-                className={`bg-white ${
-                  !isUserNameValid ? "border-red-500" : ""
-                }`}
-                required
-              />
-              {!isUserNameValid && (
-                <p className="text-white -mt-3 text-sm">* required field</p>
-              )}
-              <Input
-                type="email"
-                placeholder="Email"
-                name="user_email"
-                className={`bg-white ${
-                  !isUserEmailValid ? "border-red-500" : ""
-                }`}
-                required
-              />
-              {!isUserEmailValid && (
-                <p className="text-white -mt-3 text-sm">* required field</p>
-              )}
-              <Textarea
-                placeholder="Any Questions?"
-                name="user_message"
-                className={`bg-white ${
-                  !isUserMessageValid ? "border-red-500" : ""
-                }`}
-                required
-              />
-              {!isUserMessageValid && (
-                <p className="text-white -mt-3 text-sm">* required field</p>
-              )}
-              <div className="relative">
-                <PhoneInput
-                  country={"il"}
-                  value={ph}
-                  onChange={setPh}
-                  inputProps={{
-                    name: "user_phone",
-                    required: true,
-                  }}
-                  inputStyle={{
-                    background: "white",
-                    width: "100%",
-                  }}
-                  containerClass="relative w-full"
-                />
-                {!isPhoneValid && (
-                  <p className="text-white mt-3 text-sm">* required field</p>
-                )}
-              </div>
-              <button
-                type="submit"
-                className={buttonVariants({
-                  size: "lg",
-                  className: "mx-auto border",
-                })}
-                onClick={isFormValid}
+            {!formSubmitted ? (
+              <form
+                ref={form}
+                onSubmit={sendEmail}
+                className="flex flex-col gap-4 mt-10 bg-green-600 p-10 mx-auto rounded-xl max-w-[380px] my-2"
               >
-                Send Message
-              </button>
-            </form>
+                <Input
+                  type="text"
+                  placeholder="Full Name"
+                  name="user_name"
+                  className={`bg-white ${
+                    !isUserNameValid ? "border-red-500" : ""
+                  }`}
+                  required
+                />
+                {!isUserNameValid && (
+                  <p className="text-white -mt-3 text-sm">* required field</p>
+                )}
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  name="user_email"
+                  className={`bg-white ${
+                    !isUserEmailValid ? "border-red-500" : ""
+                  }`}
+                  required
+                />
+                {!isUserEmailValid && (
+                  <p className="text-white -mt-3 text-sm">* required field</p>
+                )}
+                <Textarea
+                  placeholder="Any Questions?"
+                  name="user_message"
+                  className={`bg-white ${
+                    !isUserMessageValid ? "border-red-500" : ""
+                  }`}
+                  required
+                />
+                {!isUserMessageValid && (
+                  <p className="text-white -mt-3 text-sm">* required field</p>
+                )}
+                <div className="relative">
+                  <PhoneInput
+                    country={"il"}
+                    value={ph}
+                    onChange={setPh}
+                    inputProps={{
+                      name: "user_phone",
+                      required: true,
+                    }}
+                    inputStyle={{
+                      background: "white",
+                      width: "100%",
+                    }}
+                    containerClass="relative w-full"
+                  />
+                  {!isPhoneValid && (
+                    <p className="text-white mt-3 text-sm">* required field</p>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  className={buttonVariants({
+                    size: "lg",
+                    className: "mx-auto border",
+                  })}
+                  onClick={isFormValid}
+                >
+                  Send Message
+                </button>
+              </form>
+            ) : (
+              <h2 className="text-center text-3xl font-bold mt-10">
+                Thank you! Your message has been 
+                <span className="text-green-600"> successfully </span>
+                 sent.
+              </h2>
+            )}
           </div>
         </MaxWidthWrapper>
       </section>
