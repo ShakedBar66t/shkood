@@ -24,16 +24,16 @@ export default function About() {
             className="w-full max-w-sm mx-auto lg:mx-0"
           />
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold">Hey, I'm Shaked.</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">Hey, Im Shaked.</h2>
             <p className="mt-4 text-base sm:text-lg">
-              I'm a 25-year-old fashion stylist from Haifa, Israel. My passion lies in helping people discover and embrace their unique style. I believe that fashion is more than just clothing—
-              <span className="text-green-600"> it's a way to express your true self.</span> Through personalized consultations, I guide my clients to understand what they genuinely want to wear and how to achieve their desired looks.
+              Im a 25-year-old fashion stylist from Haifa, Israel. My passion lies in helping people discover and embrace their unique style. I believe that fashion is more than just clothing—
+              <span className="text-green-600"> its a way to express your true self.</span> Through personalized consultations, I guide my clients to understand what they genuinely want to wear and how to achieve their desired looks.
             </p>
             <p className="mt-6 text-base sm:text-lg">
-              I don't just suggest clothes; I help you uncover your authentic style by asking the right questions and offering insightful guidance. Whether you're overwhelmed by shopping, unsure of what suits you, or need help creating outfits from your existing wardrobe, I'm here to support you.
+              I dont just suggest clothes; I help you uncover your authentic style by asking the right questions and offering insightful guidance. Whether youre overwhelmed by shopping, unsure of what suits you, or need help creating outfits from your existing wardrobe, Im here to support you.
             </p>
             <p className="mt-6 text-base sm:text-lg">
-              Together, we'll explore your preferences, break free from societal expectations, and build a wardrobe that makes you feel <span className="text-green-600">confident</span> and <span className="text-green-600">comfortable</span>. If you're ready to transform your style and feel more secure about your clothing choices, let's work together to elevate your taste and boost your confidence.
+              Together, well explore your preferences, break free from societal expectations, and build a wardrobe that makes you feel <span className="text-green-600">confident</span> and <span className="text-green-600">comfortable</span>. If youre ready to transform your style and feel more secure about your clothing choices, lets work together to elevate your taste and boost your confidence.
             </p>
           </div>
         </section>
