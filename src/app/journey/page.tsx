@@ -1,7 +1,7 @@
 import { Icons } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Check } from "lucide-react";
-import { Playfair_Display } from "@next/font/google";
+import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -16,7 +16,6 @@ export default function Journey() {
           The{" "}
           <span className="relative px-2">
             Jour<span className="text-green-600">ney! </span>
-            <Icons.underline className="hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-green-500" />
           </span>
         </h1>
         <section className="w-full">
@@ -32,7 +31,7 @@ export default function Journey() {
             <div>
               <div className="max-w-2xl flex flex-col mx-auto md:flex-row">
                 <div>
-                  <p className="-mb-2 mt-10 text-xl">
+                  <p className="-mb-2 text-xl">
                     Fucking Awesome PBS Cargo Pants
                     <br />
                     Baggy fit with logo embroidery on the back left pocket.
@@ -52,7 +51,7 @@ export default function Journey() {
                     className="rotate-[10deg] w-12 mx-auto"
                   />
                 </div>
-                <div className="mt-10">
+                <div className="">
                   <p className="text-xl">Boston Celtics NBA Jersey</p>
                   <ul className="list-disc pl-4">
                     <li>NIKE Dri-Fit technology</li>
@@ -71,7 +70,7 @@ export default function Journey() {
                   />
                 </div>
               </div>
-              <div className="max-w-3xl text-xl mt-10">
+              <div className="max-w-2xl text-xl mt-10 mx-auto">
                 <p>
                   SALOMON XT-6
                   <br />

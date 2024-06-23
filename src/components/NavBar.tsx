@@ -17,8 +17,8 @@ const Navbar = () => {
             <Link href="/journey">
               Jour<span className="text-green-600">ney!</span>
             </Link>
-            <Link href="/handling">
-              Handl<span className="text-green-600">ing!</span>
+            <Link href="/about">
+              Abo<span className="text-green-600">ut!</span>
             </Link>
           </div>
         </div>
