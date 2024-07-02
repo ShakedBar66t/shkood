@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import { Playfair_Display } from "next/font/google";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import WhatsAppLogo from "@/components/WhatsappLogo"; // Import the new component
+import BringThemHome from "@/components/BringThemHome";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -30,6 +32,8 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <WhatsAppLogo /> 
+        <BringThemHome />
       </body>
     </html>
   );
