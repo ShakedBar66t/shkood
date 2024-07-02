@@ -43,9 +43,9 @@ export default function Uniqlo() {
           <p className="text-center mt-10 text-md md:text-lg lg:text-xl">
             UNIQLO Co., Ltd. is a Japanese multinational retail company founded
             in 1949, renowned for its high-quality, affordable casual wear. The
-            brand's minimalist designs and commitment to functionality have made
+            brand&lsquo;s minimalist designs and commitment to functionality have made
             it a global leader in everyday apparel.
-            <br /> UNIQLO's LifeWear concept
+            <br /> UNIQLO&lsquo;s LifeWear concept
             and innovative fabrics like HeatTech and AIRism cater to diverse
             lifestyles, emphasizing comfort and versatility. The brand has
             gained popularity in various subcultures, including streetwear and

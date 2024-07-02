@@ -111,7 +111,7 @@ function Review({ imgSrc, className, ...props }: ReviewProps) {
         style={{ animationDelay }}
         {...props}
       >
-        <img src={imgSrc} className="" />
+        <img src={imgSrc} className="" alt="img-slide" />
       </div>
     </Link>
   );
@@ -168,6 +168,7 @@ export function Reviews() {
         aria-hidden="true"
         src="/what-people-are-buying.png"
         className="absolute select-none hidden xl:block -left-32 top-1/3"
+        alt="what-are-people-buying"
       />
 
       <ReviewGrid />

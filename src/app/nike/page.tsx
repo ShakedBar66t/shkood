@@ -47,15 +47,11 @@ export default function Nike() {
           <p className="text-center mt-10 text-md md:text-lg lg:text-xl">
             Nike, Inc. is an American multinational corporation founded in 1964,
             renowned for its athletic footwear, apparel, and equipment. The
-            brand's innovative designs and marketing have made it a global
+            brand&lsquo;s innovative designs and marketing have made it a global
             leader in sportswear, endorsed by top athletes and teams worldwide.
-            Nike's iconic "Just Do It" slogan and the Swoosh logo have permeated
+            Nike&lsquo;s iconic &lsquo;Just Do It&lsquo; slogan and the Swoosh logo have permeated
             various subcultures, including streetwear, hip-hop, and fitness
-            communities, reflecting a blend of performance and style.
-            <br />
-            The brand gained popularity in subcultures, including skateboarding,
-            graffiti, and hip-hop communities, embracing Carhartt's rugged and
-            utilitarian aesthetic.
+            communities, reflecting a blend of performance and style. 
           </p>
           <h2 className="mt-10 font-bold !leading-tight text-gray-900 text-2xl md:text-3xl lg:text-4xl">
             Some of the Nike clothing:

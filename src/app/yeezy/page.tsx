@@ -43,8 +43,8 @@ export default function Yeezy() {
             className="w-full sm:w-1/2 mt-10"
           />
           <p className="text-center mt-10 text-md md:text-lg lg:text-xl">
-            Adidas Yeezy 'or just Yeezy' was a fashion collaboration between
-            American rapper, designer, and entrepreneur Kayne West's Yeezy and
+            Adidas Yeezy &lsquo;or just Yeezy&lsquo; was a fashion collaboration between
+            American rapper, designer, and entrepreneur Kayne West&lsquo;s Yeezy and
             German sportswear company Adidas.
             <br />
             It offered sneakers in limited edition colorways, as well as shirts, jackets, track pants, socks, slides, lingerie and slippers.
