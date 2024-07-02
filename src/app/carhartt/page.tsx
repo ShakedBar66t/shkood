@@ -49,7 +49,7 @@ export default function Carhartt() {
             and hunting apparel.
             <br />
             The brand gained popularity in subcultures, including skateboarding,
-            graffiti, and hip-hop communities, embracing Carhartt's rugged and
+            graffiti, and hip-hop communities, embracing Carhartt&lsquo;s rugged and
             utilitarian aesthetic.
           </p>
           <h2 className="mt-10 font-bold !leading-tight text-gray-900 text-2xl md:text-3xl lg:text-4xl">

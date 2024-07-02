@@ -48,8 +48,8 @@ export default function Adidas() {
             its innovative designs and performance-driven products, Adidas has
             become a global powerhouse in the sportswear industry, endorsed by
             numerous top athletes and sports teams.
-            <br /> The brand's iconic three
-            stripes and "Impossible is Nothing" slogan resonate across various
+            <br /> The brand&lsquo;s iconic three
+            stripes and &lsquo;Impossible is Nothing&lsquo; slogan resonate across various
             subcultures, including streetwear, skateboarding, and hip-hop,
             symbolizing a fusion of athletic performance and urban style.
           </p>

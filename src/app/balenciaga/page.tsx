@@ -45,7 +45,7 @@ export default function Balenciaga() {
             Balenciaga is a Spanish luxury fashion line that was founded in 1919
             by courtier Cristóbal Balenciaga in Sab Sebastian.
             <br />
-            Balenciaga's heritage is deeply rooted in the groundbreaking designs
+            Balenciaga&lsquo;s heritage is deeply rooted in the groundbreaking designs
             of its founder, Cristóbal Balenciaga. Renowned for his innovative
             approach to fashion, Balenciaga revolutionized the industry with his
             avant-garde silhouettes, architectural designs, and pioneering
