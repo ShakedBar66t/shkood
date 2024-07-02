@@ -8,14 +8,14 @@ import Link from "next/link";
 import Phone from "./Phone";
 
 const PHONES = [
-  "testimonials/carhartt-Logo.png",
-  "testimonials/adidas-Logo.png",
-  "testimonials/yeezy-Logo.png",
-  "testimonials/balenciaga-Logo.png",
-  "testimonials/supreme-Logo.png",
-  "testimonials/nike-Logo.png",
-  "testimonials/BAPE-Logo.png",
-  "testimonials/uniqlo-Logo.png",
+  "testimonials/carhartt-logo.png",
+  "testimonials/adidas-logo.png",
+  "testimonials/yeezy-logo.png",
+  "testimonials/balenciaga-logo.png",
+  "testimonials/supreme-logo.png",
+  "testimonials/nike-logo.png",
+  "testimonials/bape-logo.png",
+  "testimonials/uniqlo-logo.png",
 ];
 
 function splitArray<T>(array: Array<T>, numParts: number) {
