@@ -11,14 +11,14 @@ const Navbar = () => {
       <MaxWidthWrapper>
         <div className="flex h-14 items-center justify-between border-b border-zinc-200">
           <Link href="/" className="flex z-40 font-semibold">
-            Shko<span className="text-green-600">od!</span>
+            Shkood<span className="text-green-600">!</span>
           </Link>
           <div className="flex flex-row gap-4">
             <Link href="/journey">
-              Jour<span className="text-green-600">ney!</span>
+              Journey<span className="text-green-600">!</span>
             </Link>
             <Link href="/about">
-              Abo<span className="text-green-600">ut!</span>
+              About<span className="text-green-600">!</span>
             </Link>
           </div>
         </div>

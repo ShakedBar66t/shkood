@@ -14,12 +14,12 @@ export default function Journey() {
       <MaxWidthWrapper>
         <h1 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
           The{" "}
-          <span className="relative px-2">
-            Jour<span className="text-green-600">ney! </span>
+          <span className="px-2">
+            Journey<span className="text-green-600">! </span>
           </span>
         </h1>
         <section className="w-full">
-          <div className="relative mx-auto my-10 max-w-[15rem] md:max-w-[10rem] lg:max-w-[15rem]">
+          <div className="relative mx-auto my-10 max-w-[15rem] md:max-w-[20rem] lg:max-w-[10rem]">
             <img src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793735/Shkood%20project/vtnzeilyszxwt9yl8cei.jpg" className="w-full" alt="guy-ugly" />
             <img
               src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793708/Shkood%20project/bjbaklmjmgacsvmvns9c.png"
@@ -41,14 +41,14 @@ export default function Journey() {
                   <img
                     src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793865/Shkood%20project/oxg96wrrobfazht2wwze.png"
                     alt="fa-pants"
-                    className="max-w-[200px] pl-20"
+                    className="max-w-[200px] pl-20 mx-auto"
                   />
                 </div>
                 <div className="flex items-end ">
                   <img
                     src="plus-sign.png"
                     alt=""
-                    className="rotate-[10deg] w-12 mx-auto"
+                    className="rotate-[10deg] w-12 mx-auto my-10"
                   />
                 </div>
                 <div className="">
@@ -61,12 +61,12 @@ export default function Journey() {
                   <img
                     src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793862/Shkood%20project/ttdv31roc7mumvbgxc1x.png"
                     alt="nba-jersey"
-                    className="max-w-[200px] pl-20"
+                    className="max-w-[200px] pl-20 mx-auto"
                   />
                   <img
                     src="plus-sign.png"
                     alt=""
-                    className="rotate-[10deg] w-12 mx-auto mt-10 md:hidden"
+                    className="rotate-[10deg] w-12 mx-auto my-10 md:hidden"
                   />
                 </div>
               </div>

@@ -4,15 +4,18 @@ import { HTMLAttributes, useEffect, useRef, useState } from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import Phone from "./Phone";
 
 const PHONES = [
-  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/b7smgg9znhxse8wlfuxk",
-  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/hqpnftcjzpjs98molo3q",
-  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/j7k8ym5j2a8vzv0poith",
-  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/dofae8z9ihfex86qy2rf",
-  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/k6bsyptfzcgpxklch230",
-  "https://res.cloudinary.com/drld1bejg/video/upload/f_auto:video,q_auto/v1/Shkood%20project/ce63zlvyvhmttzzityo8"
+  "testimonials/carhartt-Logo.png",
+  "testimonials/adidas-Logo.png",
+  "testimonials/yeezy-Logo.png",
+  "testimonials/balenciaga-Logo.png",
+  "testimonials/supreme-Logo.png",
+  "testimonials/nike-Logo.png",
+  "testimonials/BAPE-Logo.png",
+  "testimonials/uniqlo-Logo.png",
 ];
 
 function splitArray<T>(array: Array<T>, numParts: number) {
@@ -58,7 +61,7 @@ function ReviewColumn({
   return (
     <div
       ref={columnRef}
-      className={cn("animate-marquee space-y-8 py-4", className)}
+      className={cn("animate-marquee space-y-8 py-4 mx-auto", className)}
       style={{ "--marquee-duration": duration } as React.CSSProperties}
     >
       {reviews.concat(reviews).map((imgSrc, reviewIndex) => (
@@ -75,6 +78,13 @@ function ReviewColumn({
 interface ReviewProps extends HTMLAttributes<HTMLDivElement> {
   imgSrc: string;
 }
+
+function getBrandFromImgSrc(imgSrc: string): string {
+  const parts = imgSrc.split("/");
+  const fileName = parts[parts.length - 1];
+  return fileName.split("-")[0]; // Extract brand name before '-Logo.png'
+}
+
 function Review({ imgSrc, className, ...props }: ReviewProps) {
   const POSSIBLE_ANIMATION_DELAYS = [
     "0s",
@@ -88,17 +98,22 @@ function Review({ imgSrc, className, ...props }: ReviewProps) {
     POSSIBLE_ANIMATION_DELAYS[
       Math.floor(Math.random() * POSSIBLE_ANIMATION_DELAYS.length)
     ];
+  const brand = getBrandFromImgSrc(imgSrc);
+  const href = `/${brand.toLowerCase()}`;
+
   return (
-    <div
-      className={cn(
-        "animate-fade-in rounded-[2.25rem] bg-white p-6 opacity-0 shadow-xl shadow-slate-900/5",
-        className
-      )}
-      style={{ animationDelay }}
-      {...props}
-    >
-      <Phone mediaSrc={imgSrc} />
-    </div>
+    <Link href={href}>
+      <div
+        className={cn(
+          "flex items-center justify-center animate-fade-in rounded-[2.25rem] bg-white p-6 opacity-0 shadow-xl shadow-slate-900/5 w-52 h-52 mt-10",
+          className
+        )}
+        style={{ animationDelay }}
+        {...props}
+      >
+        <img src={imgSrc} className="" />
+      </div>
+    </Link>
   );
 }
 

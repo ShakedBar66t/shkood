@@ -1,6 +1,5 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -15,18 +14,23 @@ const Footer = () => {
               Barsheshet
             </p>
           </div>
-          <div className="flex items-center justify-between">
-          </div>
+          <div className="flex items-center justify-between"></div>
           <div className="flex items-center justify-center">
             <div className="flex space-x-8">
-              <div className="text-sm text-muted-foreground hover:text-gray-600">
-                Terms
+              <div className="transition-transform transform hover:scale-150">
+                <Link href="https://www.instagram.com/shk00d">
+                  <img src="/ig-logo.webp" alt="Instagram Logo" className="w-4" />
+                </Link>
               </div>
-              <div className="text-sm text-muted-foreground hover:text-gray-600">
-                Privacy Policy
-              </div> 
-              <div className="text-sm text-muted-foreground hover:text-gray-600">
-                Cookie Policy
+              <div className="transition-transform transform hover:scale-150">
+                <Link href="https://www.facebook.com/BarsheshetShaked/">
+                  <img src="/facebook-logo.png" alt="Facebook Logo" className="w-4 rounded-sm" />
+                </Link>
+              </div>
+              <div className="transition-transform transform hover:scale-150">
+                <Link href="https://www.tiktok.com/@shakedbar66t">
+                  <img src="/tiktok-logo.png" alt="TikTok Logo" className="w-4 rounded-sm" />
+                </Link>
               </div>
             </div>
           </div>
@@ -37,3 +41,4 @@ const Footer = () => {
 };
 
 export default Footer;
+0

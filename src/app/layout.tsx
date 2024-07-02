@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Playfair_Display } from "next/font/google";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const playfair = Playfair_Display({
   subsets: ["latin"],

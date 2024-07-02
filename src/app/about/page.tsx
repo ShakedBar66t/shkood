@@ -7,12 +7,14 @@ export default function About() {
     <main>
       <section>
         <div className="relative w-full">
-          <img src="clothing-rack.jpg" alt="Clothing rack full of stylish clothes" className="w-full" />
+          <img
+            src="clothing-rack.jpg"
+            alt="Clothing rack full of stylish clothes"
+            className="w-full"
+          />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center p-4">
             <h1 className="text-white text-3xl sm:text-5xl">Shkood!</h1>
-            <p className="text-white text-xl sm:text-3xl mt-6">
-              Empowering you to look better, feel better, and express your true self through elevated style.
-            </p>
+            <p className="text-white text-xl sm:text-3xl mt-6">Your wardrobe on a different level </p>
           </div>
         </div>
       </section>
@@ -26,14 +28,32 @@ export default function About() {
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold">Hey, Im Shaked.</h2>
             <p className="mt-4 text-base sm:text-lg">
-              Im a 25-year-old fashion stylist from Haifa, Israel. My passion lies in helping people discover and embrace their unique style. I believe that fashion is more than just clothing—
-              <span className="text-green-600"> its a way to express your true self.</span> Through personalized consultations, I guide my clients to understand what they genuinely want to wear and how to achieve their desired looks.
+              Im a 25-year-old fashion stylist from Haifa, Israel. My passion
+              lies in helping people discover and embrace their unique style. I
+              believe that fashion is more than just clothing—
+              <span className="text-green-600">
+                {" "}
+                its a way to express your true self.
+              </span>{" "}
+              Through personalized consultations, I guide my clients to
+              understand what they genuinely want to wear and how to achieve
+              their desired looks.
             </p>
             <p className="mt-6 text-base sm:text-lg">
-              I dont just suggest clothes; I help you uncover your authentic style by asking the right questions and offering insightful guidance. Whether youre overwhelmed by shopping, unsure of what suits you, or need help creating outfits from your existing wardrobe, Im here to support you.
+              I dont just suggest clothes; I help you uncover your authentic
+              style by asking the right questions and offering insightful
+              guidance. Whether youre overwhelmed by shopping, unsure of what
+              suits you, or need help creating outfits from your existing
+              wardrobe, Im here to support you.
             </p>
             <p className="mt-6 text-base sm:text-lg">
-              Together, well explore your preferences, break free from societal expectations, and build a wardrobe that makes you feel <span className="text-green-600">confident</span> and <span className="text-green-600">comfortable</span>. If youre ready to transform your style and feel more secure about your clothing choices, lets work together to elevate your taste and boost your confidence.
+              Together, well explore your preferences, break free from societal
+              expectations, and build a wardrobe that makes you feel{" "}
+              <span className="text-green-600">confident</span> and{" "}
+              <span className="text-green-600">comfortable</span>. If youre
+              ready to transform your style and feel more secure about your
+              clothing choices, lets work together to elevate your taste and
+              boost your confidence.
             </p>
           </div>
         </section>

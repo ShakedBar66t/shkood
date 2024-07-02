@@ -47,8 +47,8 @@ const Phone: React.FC<PhoneProps> = ({ mediaSrc, className, dark = false, ...pro
   return (
     <div className={cn("relative pointer-events-none z-50 overflow-hidden", className)} {...props}>
       <img
-        src={dark ? "/phone-template-dark-edges.png" : "/phone-template-white-edges.png"}
-        className="pointer-events-none z-50 select-none"
+        src="/front-iphone.png"
+        className="pointer-events-none z-50 select-none w-full h-full"
         alt="phone frame"
       />
 
