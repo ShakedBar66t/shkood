@@ -38,7 +38,7 @@ export default function Adidas() {
       <MaxWidthWrapper>
         <div className="flex flex-col text-center items-center">
           <img
-            src="adidas-clothing/Adidas-logo-2.png"
+            src="adidas-clothing/Adidas-Logo-2.png"
             alt="adidas-logo"
             className="w-full sm:w-1/2 mt-10"
           />
