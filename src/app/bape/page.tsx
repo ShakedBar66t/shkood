@@ -36,7 +36,7 @@ export default function Bape() {
       <MaxWidthWrapper>
         <div className="flex flex-col text-center items-center">
           <img
-            src="/bape-clothing/bape-symbol.png"
+            src="/bape-clothing/BAPE-Symbol.png"
             alt="bape-logo"
             className="w-full sm:w-1/2 mt-10"
           />

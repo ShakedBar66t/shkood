@@ -14,7 +14,7 @@ const PHONES = [
   "testimonials/balenciaga-logo.png",
   "testimonials/supreme-logo.png",
   "testimonials/nike-logo.png",
-  "testimonials/bape-logo.png",
+  "testimonials/BAPE-Logo.png",
   "testimonials/uniqlo-logo.png",
 ];
 
