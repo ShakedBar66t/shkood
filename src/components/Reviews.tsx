@@ -111,7 +111,7 @@ function Review({ imgSrc, className, ...props }: ReviewProps) {
         style={{ animationDelay }}
         {...props}
       >
-        <img src={imgSrc} className="" alt="img-slide" />
+        <img src={imgSrc} className="" alt={brand} />
       </div>
     </Link>
   );
