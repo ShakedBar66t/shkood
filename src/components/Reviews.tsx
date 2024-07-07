@@ -15,6 +15,7 @@ const PHONES = [
   "testimonials/supreme-logo.png",
   "testimonials/nike-logo.png",
   "testimonials/BAPE-Logo.png",
+  "testimonials/nike-logo.png",
   "testimonials/uniqlo-logo.png",
 ];
 
