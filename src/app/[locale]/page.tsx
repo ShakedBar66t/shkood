@@ -1,44 +1,90 @@
+"use client";
+import { GetServerSideProps } from "next";
 import ContactForm from "@/components/ContactForm";
 import { Icons } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Phone from "@/components/Phone";
 import { Reviews } from "@/components/Reviews";
 import { Check, Star } from "lucide-react";
-import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
+import { getLocaleFromPath } from "@/utils/locale";
 
 export default function Home() {
+  const locale = useLocale();
+  const t = useTranslations();
+
+  useEffect(() => {
+    document.documentElement.dir = locale === "he" ? "rtl" : "ltr";
+  }, [locale]);
+
+  function useLocale() {
+    const [locale, setLocale] = useState("en");
+
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        const pathname = window.location.pathname;
+        const pathLocale = pathname.split("/")[1];
+        setLocale(pathLocale || "en");
+      }
+    }, []);
+
+    return locale;
+  }
+
+
+
   return (
     <div className="bg-slate-50">
       <section id="/">
         <MaxWidthWrapper className="pb-24 pt-10 lg:grid lg:grid-cols-3 sm:pb-32 lg: gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-32 lg:pb-52">
           <div className="col-span-2 px-5 lg:px-0 lg:pt-4">
             <div className="relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-              <div className="aboslute w-28 left-0 -top-20 sm:">
-                <img src="/logo.png" className="w-full -my-10" />
+              <div className={clsx("absolute w-28  -top-20", {
+                "lg:left-0": locale === "en",
+                "lg:right-0": locale === "he"
+              })}>
+                <img src="/logo.png" className="w-full my-10" alt="logo" />
               </div>
-              <h1 className="relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl">
-                Your Wardrobe on a{" "}
-                <span className="bg-green-600 px-2 text-white">Different</span>{" "}
-                Level
+              <h1
+                className={clsx(
+                  "relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl lg:text-6xl",
+                  {
+                    "lg:text-left": locale === "en",
+                    "lg:text-right": locale === "he",
+                  }
+                )}
+              >
+                {t("heading.part1")}{" "}
+                <span className="bg-green-600 px-2 text-white">
+                  {t("heading.part2")}
+                </span>{" "}
+                {t("heading.part3")}
               </h1>
-              <p className="mt-8 text-lg lg:pr-10 max-w-prose text-center lg:text-left text-balance md:text-wrap">
-                Transform your wardrobe with personalized styling that{" "}
-                <span className="font-semibold">enchances</span> your comfort,
-                appearance, and confidence.
+              <p className={clsx("mt-8 text-lg max-w-prose text-center text-balance md:text-wrap", {
+                "pr-10 text-center lg:text-left": locale === "en",
+                "pl-10 text-center lg:text-right": locale === "he"
+              })}>
+                {t("opening-paragraph.part1")}{" "}
+                <span className="font-semibold">
+                  {t("opening-paragraph.part2")}
+                </span>{" "}
+                {t("opening-paragraph.part3")}
               </p>
               <ul className="mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start">
                 <div className="space-y-2">
                   <li className="flex gap-1.5 items-center text-left">
                     <Check className="h-5 w-5 shrink-0 text-green-600" />
-                    Complete Wardrobe Refresh
+                    {t("check1")}{" "}
                   </li>
                   <li className="flex gap-1.5 items-center text-left">
                     <Check className="h-5 w-5 shrink-0 text-green-600" />
-                    Feel Comfortable & Confident Always
+                    {t("check2")}{" "}
                   </li>
                   <li className="flex gap-1.5 items-center text-left">
                     <Check className="h-5 w-5 shrink-0 text-green-600" />
-                    Personalized Styling Advice
+                    {t("check3")}{" "}
                   </li>
                 </div>
               </ul>
@@ -81,7 +127,8 @@ export default function Home() {
                   </div>
 
                   <p>
-                    <span className="font-semibold">1,250</span> happy customers
+                    <span className="font-semibold">1,250</span>{" "}
+                    {t("happy-customers")}{" "}
                   </p>
                 </div>
               </div>
@@ -92,13 +139,22 @@ export default function Home() {
             <div className="relative md:max-w-xl rounded-lg">
               <img
                 src="/your-image.png"
-                className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block"
-                alt=""
+                className={clsx("absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block", {
+                  "sm:hidden xl:hidden": locale === "he"
+                })}
+                alt="your image"
+              />
+              <img
+                src="/new-clothes-he.png"
+                className={clsx("absolute lg:w-52 right-48 -top-20 select-none hidden sm:block lg:hidden xl:block", {
+                  "sm:hidden xl:hidden": locale === "en"
+                })}
+                alt="your image"
               />
               <img
                 src="/line.png"
                 className="absolute w-20 -left-6 -bottom-6 select-none"
-                alt=""
+                alt="line"
               />
               <Phone
                 className="w-64"
@@ -114,14 +170,18 @@ export default function Home() {
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-32">
           <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6">
             <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
-              What our 
+              {t("customers-say.part1")}{" "}
               <span className="relative inline-block px-2">
-                Customers{" "}
+                {t("customers-say.part2")}{" "}
                 <Icons.underline className="hidden sm:block pointer-events-none absolute left-0 w-full -bottom-6 text-green-500" />
               </span>{" "}
-              have to say
+              {t("customers-say.part3")}?
             </h2>
-            <img src="logo-2.png" className="w-24 order-0 lg:order-2" />
+            <img
+              src="logo-2.png"
+              className="w-24 order-0 lg:order-2"
+              alt="logo 2"
+            />
           </div>
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
             <div className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20">
@@ -134,13 +194,11 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                  &quot;I had an amazing experience working with Shko
-                  <span className="text-green-600">od!</span> He completely
-                  transformed my wardrobe, and now{" "}
+                  &quot;{t("elon-review.part1")}{" "}
                   <span className="p-0.5 bg-slate-800 text-white">
-                    I feel more comfortable
+                    {t("elon-review.part2")}
                   </span>{" "}
-                  and stylish.&quot;
+                  {t("elon-review.part3")}&quot;
                 </p>
               </div>
               <div className="flex gap-4 mt-2">
@@ -150,10 +208,10 @@ export default function Home() {
                   alt="model"
                 />
                 <div className="flex flex-col">
-                  <p className="font-semibold">Elon</p>
+                  <p className="font-semibold">{t("elon")}</p>
                   <div className="flex gap-1.5 items-center text-zinc-600">
                     <Check className="h-4 w-4 stroke-[3px] text-green-600" />
-                    <p className="text-sm">Verified Customer</p>
+                    <p className="text-sm">{t("verified-customer")}</p>
                   </div>
                 </div>
               </div>
@@ -168,12 +226,9 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                  &quot;Working with Shko
-                  <span className="text-green-600">od!</span> was the best
-                  decision for my style. He made the whole experience fun and
-                  stress-free, and{" "}
+                  &quot;{t("tamar-review.part1")}{" "}
                   <span className="p-0.5 bg-slate-800 text-white">
-                    I love my new look
+                    {t("tamar-review.part2")}
                   </span>
                   .&quot;
                 </p>
@@ -185,10 +240,10 @@ export default function Home() {
                   alt="model"
                 />
                 <div className="flex flex-col">
-                  <p className="font-semibold">Tamar</p>
+                  <p className="font-semibold">{t("tamar")}</p>
                   <div className="flex gap-1.5 items-center text-zinc-600">
                     <Check className="h-4 w-4 stroke-[3px] text-green-600" />
-                    <p className="text-sm">Verified Customer</p>
+                    <p className="text-sm">{t("verified-customer")}</p>
                   </div>
                 </div>
               </div>
@@ -202,16 +257,16 @@ export default function Home() {
           <div className="mb-12 px-6 lg:px-8">
             <div className="mx-auto max-w-2xl sm:text-center">
               <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:6xl text-gray-900">
-                What{" "}
+                {t("what-brands.part1")}{" "}
                 <span className="relative px-2 bg-green-600 text-white">
-                  brands
+                  {t("what-brands.part2")}
                 </span>{" "}
-                do you like?
+                {t("what-brands.part3")}
               </h2>
             </div>
           </div>
           <div className="pt-2">
-            <Reviews />
+            <Reviews locale={locale} />
           </div>
         </MaxWidthWrapper>
       </section>

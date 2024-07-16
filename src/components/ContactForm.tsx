@@ -1,17 +1,18 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Icons } from "./Icons";
 import emailjs from "@emailjs/browser";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import OtpInput from "otp-input-react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useTranslations } from "next-intl";
+import clsx from "clsx";
 
 const ContactForm: React.FC = () => {
-  const [otp, setOtp] = useState<string>("");
+  const t = useTranslations();
   const [ph, setPh] = useState<string>("");
   const [user, setUser] = useState<any>(null);
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
@@ -72,11 +73,19 @@ const ContactForm: React.FC = () => {
           <div className="container mx-auto">
             <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
               <span className="relative inline-block px-2">
-                Contact{" "}
+                {t("contact-us.part1")}{" "}
                 <Icons.underline className="hidden sm:block pointer-events-none absolute left-0 w-full -bottom-6 text-green-500" />
               </span>{" "}
-              us
+              {t("contact-us.part2")}{" "}
+              <span className="inline-flex items-center">
+                <img
+                  src="/point-down.svg"
+                  alt="point-down"
+                  className="w-14"
+                />
+              </span>
             </h2>
+
             {!formSubmitted ? (
               <form
                 ref={form}
@@ -85,7 +94,7 @@ const ContactForm: React.FC = () => {
               >
                 <Input
                   type="text"
-                  placeholder="Full Name"
+                  placeholder={t("contact-full-name")}
                   name="user_name"
                   className={`bg-white ${
                     !isUserNameValid ? "border-red-500" : ""
@@ -93,11 +102,13 @@ const ContactForm: React.FC = () => {
                   required
                 />
                 {!isUserNameValid && (
-                  <p className="text-white -mt-3 text-sm">* required field</p>
+                  <p className="text-white -mt-3 text-sm">
+                    * {t("required-field")}
+                  </p>
                 )}
                 <Input
                   type="email"
-                  placeholder="Email"
+                  placeholder={t("contact-email")}
                   name="user_email"
                   className={`bg-white ${
                     !isUserEmailValid ? "border-red-500" : ""
@@ -105,10 +116,12 @@ const ContactForm: React.FC = () => {
                   required
                 />
                 {!isUserEmailValid && (
-                  <p className="text-white -mt-3 text-sm">* required field</p>
+                  <p className="text-white -mt-3 text-sm">
+                    * {t("required-field")}
+                  </p>
                 )}
                 <Textarea
-                  placeholder="Any Questions?"
+                  placeholder={t("contact-message")}
                   name="user_message"
                   className={`bg-white ${
                     !isUserMessageValid ? "border-red-500" : ""
@@ -116,7 +129,9 @@ const ContactForm: React.FC = () => {
                   required
                 />
                 {!isUserMessageValid && (
-                  <p className="text-white -mt-3 text-sm">* required field</p>
+                  <p className="text-white -mt-3 text-sm">
+                    * {t("required-field")}
+                  </p>
                 )}
                 <div className="relative">
                   <PhoneInput
@@ -130,11 +145,19 @@ const ContactForm: React.FC = () => {
                     inputStyle={{
                       background: "white",
                       width: "100%",
+                      textAlign: "left",
+                      direction: "ltr",
                     }}
                     containerClass="relative w-full"
+                    specialLabel=""
+                    style={{
+                      direction: "ltr",
+                    }}
                   />
                   {!isPhoneValid && (
-                    <p className="text-white mt-3 text-sm">* required field</p>
+                    <p className="text-white mt-3 text-sm">
+                      * {t("required-field")}
+                    </p>
                   )}
                 </div>
                 <button
@@ -145,14 +168,14 @@ const ContactForm: React.FC = () => {
                   })}
                   onClick={isFormValid}
                 >
-                  Send Message
+                  {t("send-message")}
                 </button>
               </form>
             ) : (
               <h2 className="text-center text-3xl font-bold mt-10">
-                Thank you! Your message has been 
-                <span className="text-green-600"> successfully </span>
-                 sent.
+                {t("thank-you.part1")}
+                <span className="text-green-600"> {t("thank-you.part2")} </span>
+                {t("thank-you.part3")}
               </h2>
             )}
           </div>

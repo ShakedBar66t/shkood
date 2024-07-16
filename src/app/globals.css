@@ -51,7 +51,7 @@
 }
 
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 
 @layer base {
@@ -81,6 +81,12 @@ html {
   display: flex;
   width: calc(250px * 18);
   animation: scroll 40s linear infinite;
+  direction: ltr; /* Ensure direction is set to ltr for proper flexbox behavior */
+}
+
+html[dir='rtl'] .slide-track {
+  direction: rtl; /* Adjust for RTL */
+  animation: scroll-rtl 40s linear infinite; /* Adjust animation for RTL */
 }
 
 @keyframes scroll {
@@ -89,6 +95,15 @@ html {
   }
   100% {
     transform: translateX(calc(-250px * 9));
+  }
+}
+
+@keyframes scroll-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(250px * 9));
   }
 }
 
@@ -107,7 +122,6 @@ html {
 
 .slider::before,
 .slider::after {
-  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
   content: '';
   height: 100%;
   position: absolute;
@@ -115,15 +129,15 @@ html {
   z-index: 2;
 }
 
-.slider::before {
-  left: 0;
-  top: 0;
+html[dir='rtl'] .slider::before {
+  right: 0;
+  left: auto;
 }
 
-.slider::after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
+html[dir='rtl'] .slider::after {
+  left: 0;
+  right: auto;
+  transform: rotateZ(0deg);
 }
 
 img:hover {
@@ -133,8 +147,12 @@ img:hover {
 .slide img {
   width: 100%;
   height: auto;
-  max-width: 300px; 
-  max-height: 250px; 
-  object-fit: contain; 
+  max-width: 300px;
+  max-height: 250px;
+  object-fit: contain;
   transition: transform 1s;
+}
+
+.margin-inline-start {
+  margin-inline-start: 10px;
 }

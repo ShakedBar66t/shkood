@@ -1,63 +1,52 @@
 import ContactForm from "@/components/ContactForm";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Check, Star } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function About() {
+  const t = useTranslations();
   return (
     <main>
       <section>
         <div className="relative w-full">
           <img
-            src="clothing-rack.jpg"
+            src="/clothing-rack.jpg"
             alt="Clothing rack full of stylish clothes"
             className="w-full"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center p-4">
-            <h1 className="text-white text-3xl sm:text-5xl">Shkood!</h1>
-            <p className="text-white text-xl sm:text-3xl mt-6">Your wardrobe on a different level </p>
+            <h1 className="text-white text-3xl sm:text-5xl">{t("shkood")}!</h1>
+            <p className="text-white text-xl sm:text-3xl mt-6">
+              {t("wardrobe-level")}
+            </p>
           </div>
         </div>
       </section>
       <MaxWidthWrapper>
         <section className="flex flex-col lg:flex-row mt-10 sm:mt-20 gap-10">
           <img
-            src="models/shkood-model.JPG"
+            src="/models/shkood-model.JPG"
             alt="Shaked, the fashion stylist"
             className="w-full max-w-sm mx-auto lg:mx-0"
           />
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold">Hey, Im Shaked.</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">{t("hey")}</h2>
             <p className="mt-4 text-base sm:text-lg">
-              Im a 25-year-old fashion stylist from Haifa, Israel. My passion
-              lies in helping people discover and embrace their unique style. I
-              believe that fashion is more than just clothing—
-              <span className="text-green-600">
-                {" "}
-                its a way to express your true self.
-              </span>{" "}
-              Through personalized consultations, I guide my clients to
-              understand what they genuinely want to wear and how to achieve
-              their desired looks.
+              {t("intro.part1")}
+              <span className="text-green-600"> {t("intro.part2")}</span>{" "}
+              {t("intro.part3")}
             </p>
+            <p className="mt-6 text-base sm:text-lg">{t("intro.part4")}</p>
             <p className="mt-6 text-base sm:text-lg">
-              I dont just suggest clothes; I help you uncover your authentic
-              style by asking the right questions and offering insightful
-              guidance. Whether youre overwhelmed by shopping, unsure of what
-              suits you, or need help creating outfits from your existing
-              wardrobe, Im here to support you.
-            </p>
-            <p className="mt-6 text-base sm:text-lg">
-              Together, well explore your preferences, break free from societal
-              expectations, and build a wardrobe that makes you feel{" "}
-              <span className="text-green-600">confident</span> and{" "}
-              <span className="text-green-600">comfortable</span>. If youre
-              ready to transform your style and feel more secure about your
-              clothing choices, lets work together to elevate your taste and
-              boost your confidence.
+              {t("intro.part5")}{" "}
+              <span className="text-green-600">{t("intro.part6")}</span>{" "}
+              {t("intro.part7")}{" "}
+              <span className="text-green-600">{t("intro.part8")}</span>.{" "}
+              {t("intro.part9")}
             </p>
           </div>
         </section>
-        <div className="border-t border-gray-300 my-10"></div> {/* grey line */}
+        <div className="border-t border-gray-300 my-10"></div>
         <section className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20 mt-20">
           <div className="flex gap-0.5 mb-2">
             <Star className="h-5 w-5 text-green-600 fill-green-600" />
@@ -68,13 +57,11 @@ export default function About() {
           </div>
           <div className="text-lg leading-8">
             <p>
-              &quot;Working with Shaked was an incredible experience. Shaked
-              helped me find my unique style and now{" "}
+              &quot;{t("guy-review.part1")}{" "}
               <span className="p-0.5 bg-slate-800 text-white">
-                I feel more confident
+                {t("guy-review.part2")}
               </span>{" "}
-              and stylish every day. His personalized approach made all the
-              difference. Highly recommend!&quot;
+              {t("guy-review.part3")}&quot;
             </p>
           </div>
           <div className="flex gap-4 mt-2">
@@ -84,10 +71,10 @@ export default function About() {
               alt="Guy, a satisfied customer"
             />
             <div className="flex flex-col">
-              <p className="font-semibold">Guy</p>
+              <p className="font-semibold">{t("guy")}</p>
               <div className="flex gap-1.5 items-center text-zinc-600">
                 <Check className="h-4 w-4 stroke-[3px] text-green-600" />
-                <p className="text-sm">Verified Customer</p>
+                <p className="text-sm">{t("verified-customer")}</p>
               </div>
             </div>
           </div>

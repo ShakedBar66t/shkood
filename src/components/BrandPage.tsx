@@ -2,6 +2,8 @@ import React from "react";
 import ClothingHandling from "@/components/ClothingHandling";
 import ImageSlider from "@/components/ImageSlider";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import clsx from "clsx";
+import { useLocale } from "next-intl";
 
 interface BrandPageProps {
   brand: string;
@@ -13,7 +15,20 @@ interface BrandPageProps {
   logoUrl: string;
 }
 
-const BrandPage: React.FC<BrandPageProps> = ({ brand, images, materialText, handlingText, fittingText, description, logoUrl }) => {
+const isHebrew = (locale: string) => locale === 'he';
+
+const BrandPage: React.FC<BrandPageProps> = ({
+  brand,
+  images,
+  materialText,
+  handlingText,
+  fittingText,
+  description,
+  logoUrl,
+}) => {
+  const locale = useLocale();
+  const textDirection = isHebrew(locale) ? 'rtl' : 'ltr';
+
   return (
     <section>
       <MaxWidthWrapper>
@@ -23,7 +38,10 @@ const BrandPage: React.FC<BrandPageProps> = ({ brand, images, materialText, hand
             alt={`${brand}-logo`}
             className="w-full sm:w-1/2 mt-10"
           />
-          <p className="text-center mt-10 text-md md:text-lg lg:text-xl">
+          <p
+            className="text-center mt-10 text-md md:text-lg lg:text-xl"
+            style={{ direction: textDirection }}
+          >
             {description}
           </p>
           <h2 className="mt-10 font-bold !leading-tight text-gray-900 text-2xl md:text-3xl lg:text-4xl">
@@ -31,7 +49,11 @@ const BrandPage: React.FC<BrandPageProps> = ({ brand, images, materialText, hand
           </h2>
         </div>
         <ImageSlider images={images} />
-        <ClothingHandling handlingText={handlingText} fittingText={fittingText} materialText={materialText} />
+        <ClothingHandling
+          handlingText={handlingText}
+          fittingText={fittingText}
+          materialText={materialText}
+        />
       </MaxWidthWrapper>
     </section>
   );

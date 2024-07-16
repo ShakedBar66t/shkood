@@ -1,6 +1,8 @@
 import { Icons } from "@/components/Icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import clsx from "clsx";
 import { Check } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({
@@ -9,18 +11,21 @@ const playfair = Playfair_Display({
 });
 
 export default function Journey() {
+  const t = useTranslations();
+  const locale = useLocale();
   return (
     <div className={playfair.className}>
       <MaxWidthWrapper>
         <h1 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
-          The{" "}
-          <span className="px-2">
-            Journey<span className="text-green-600">! </span>
-          </span>
+          {t("the-journey")} <span className="text-green-600">! </span>
         </h1>
         <section className="w-full">
           <div className="relative mx-auto my-10 max-w-[15rem] md:max-w-[20rem] lg:max-w-[10rem]">
-            <img src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793735/Shkood%20project/vtnzeilyszxwt9yl8cei.jpg" className="w-full" alt="guy-ugly" />
+            <img
+              src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793735/Shkood%20project/vtnzeilyszxwt9yl8cei.jpg"
+              className="w-full"
+              alt="guy-ugly"
+            />
             <img
               src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793708/Shkood%20project/bjbaklmjmgacsvmvns9c.png"
               className="absolute top-0 left-0 w-full h-full object-cover overflow-visible"
@@ -32,11 +37,10 @@ export default function Journey() {
               <div className="max-w-2xl flex flex-col mx-auto md:flex-row">
                 <div>
                   <p className="-mb-2 text-xl">
-                    Fucking Awesome PBS Cargo Pants
+                    {t("fucking-awesome-pants.part1")}
                     <br />
-                    Baggy fit with logo embroidery on the back left pocket.
-                    <br />
-                    100% cotton
+                    {t("fucking-awesome-pants.part2")} <br />
+                    {t("fucking-awesome-pants.part3")}{" "}
                   </p>
                   <img
                     src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793865/Shkood%20project/oxg96wrrobfazht2wwze.png"
@@ -52,11 +56,11 @@ export default function Journey() {
                   />
                 </div>
                 <div className="">
-                  <p className="text-xl">Boston Celtics NBA Jersey</p>
+                  <p className="text-xl">{t("boston-jersey.part1")}</p>
                   <ul className="list-disc pl-4">
-                    <li>NIKE Dri-Fit technology</li>
-                    <li>Breathable mesh</li>
-                    <li>100% Polyester</li>
+                    <li>{t("boston-jersey.part2")}</li>
+                    <li>{t("boston-jersey.part3")}</li>
+                    <li>{t("boston-jersey.part4")}</li>
                   </ul>
                   <img
                     src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793862/Shkood%20project/ttdv31roc7mumvbgxc1x.png"
@@ -64,7 +68,7 @@ export default function Journey() {
                     className="max-w-[200px] pl-20 mx-auto"
                   />
                   <img
-                    src="plus-sign.png"
+                    src="/plus-sign.png"
                     alt=""
                     className="rotate-[10deg] w-12 mx-auto my-10 md:hidden"
                   />
@@ -74,9 +78,9 @@ export default function Journey() {
                 <p>
                   SALOMON XT-6
                   <br />
-                  Weight: 365G
+                  {t("salomon-shoes.part1")}
                   <br />
-                  Rubber outsole and Synthetic/Textile Upper
+                  {t("salomon-shoes.part2")}
                 </p>
                 <div>
                   <img
@@ -89,21 +93,33 @@ export default function Journey() {
             </div>
             <div className="flex items-center">
               <img
-                src="equals-sign-2.png"
+                src="/equals-sign-2.png"
                 alt="equals-sign"
                 className="w-16 mx-auto rotate-[90deg] lg:rotate-0"
               />
             </div>
-            <div className="flex flex-col items-center md:mt-20">
+            <div className={clsx("flex flex-col items-center md:mt-20", {
+              "mr-10": locale === "he"
+            })}>
               <img
                 src="https://res.cloudinary.com/drld1bejg/image/upload/v1718794010/Shkood%20project/iiieyoh7dd5znshhq5qz.jpg"
                 alt="guy-image"
                 className="max-w-xs mx-auto"
               />
-              <img 
-              src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793975/Shkood%20project/zs7vacno2dtz3qyd6q56.png"
-              alt="happy-customer"
-              className="mx-auto w-96"/>
+              <img
+                src="https://res.cloudinary.com/drld1bejg/image/upload/v1718793975/Shkood%20project/zs7vacno2dtz3qyd6q56.png"
+                alt="happy-customer"
+                className={clsx("mx-auto w-96", {
+                  "hidden": locale === "he",
+                })}
+              />
+              <img
+                src="/happy-customer-he.png"
+                alt="happy-customer-hebrew"
+                className={clsx("mx-auto w-56", {
+                  "hidden": locale === "en",
+                })}
+              />
             </div>
           </div>
         </section>
