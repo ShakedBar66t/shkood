@@ -1,20 +1,18 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Icons } from "./Icons";
 import emailjs from "@emailjs/browser";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import clsx from "clsx";
 
 const ContactForm: React.FC = () => {
   const t = useTranslations();
+  const locale = useLocale(); // Get the current locale
   const [ph, setPh] = useState<string>("");
-  const [user, setUser] = useState<any>(null);
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
   const [isUserNameValid, setIsUserNameValid] = useState<boolean>(true);
@@ -52,7 +50,6 @@ const ContactForm: React.FC = () => {
         .then(
           () => {
             console.log("SUCCESS!");
-            setUser(true);
             setPh("");
             if (form.current) {
               form.current.reset();
@@ -133,33 +130,24 @@ const ContactForm: React.FC = () => {
                     * {t("required-field")}
                   </p>
                 )}
-                <div className="relative">
-                  <PhoneInput
-                    country={"il"}
-                    value={ph}
-                    onChange={setPh}
-                    inputProps={{
-                      name: "user_phone",
-                      required: true,
-                    }}
-                    inputStyle={{
-                      background: "white",
-                      width: "100%",
-                      textAlign: "left",
-                      direction: "ltr",
-                    }}
-                    containerClass="relative w-full"
-                    specialLabel=""
-                    style={{
-                      direction: "ltr",
-                    }}
-                  />
-                  {!isPhoneValid && (
-                    <p className="text-white mt-3 text-sm">
-                      * {t("required-field")}
-                    </p>
-                  )}
-                </div>
+                <Input
+                  type="tel"
+                  placeholder={t("contact-phone")}
+                  value={ph}
+                  onChange={(e) => setPh(e.target.value)}
+                  name="user_phone"
+                  className={clsx("bg-white", {
+                    "border-red-500": !isPhoneValid,
+                    "rtl-placeholder": locale === "he",
+                    "ltr-placeholder": locale !== "he",
+                  })}
+                  required
+                />
+                {!isPhoneValid && (
+                  <p className="text-white -mt-3 text-sm">
+                    * {t("required-field")}
+                  </p>
+                )}
                 <button
                   type="submit"
                   className={buttonVariants({

@@ -156,3 +156,16 @@ img:hover {
 .margin-inline-start {
   margin-inline-start: 10px;
 }
+
+
+.rtl-placeholder::placeholder {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr-placeholder::placeholder {
+  direction: ltr;
+  text-align: left;
+}
+
+

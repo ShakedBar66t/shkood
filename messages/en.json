@@ -43,6 +43,7 @@
   "send-message": "Send Message",
   "contact-full-name": "Full Name",
   "contact-email": "Email",
+  "contact-phone": "Phone",
   "contact-message": "Message",
   "thank-you": {
     "part1": "Thank you! Your message has been",
