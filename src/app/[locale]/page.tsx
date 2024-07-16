@@ -63,8 +63,8 @@ export default function Home() {
                 {t("heading.part3")}
               </h1>
               <p className={clsx("mt-8 text-lg max-w-prose text-center text-balance md:text-wrap", {
-                "pr-10 text-center lg:text-left": locale === "en",
-                "pl-10 text-center lg:text-right": locale === "he"
+                "text-center lg:text-left": locale === "en",
+                "text-center lg:text-right": locale === "he"
               })}>
                 {t("opening-paragraph.part1")}{" "}
                 <span className="font-semibold">
