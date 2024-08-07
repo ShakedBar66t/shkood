@@ -50,7 +50,7 @@ export default function Journey() {
                 </div>
                 <div className="flex items-end ">
                   <img
-                    src="plus-sign.png"
+                    src="/plus-sign.png"
                     alt=""
                     className="rotate-[10deg] w-12 mx-auto my-10"
                   />
